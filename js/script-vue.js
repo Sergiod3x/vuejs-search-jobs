@@ -56,7 +56,7 @@ new Vue(
                 contract: 'Part-Time'
               }     
         ],
-        starred: [1, 2, 3],
+        starred: [1, 2, 4],
         applied: [4, 5],
         
             // myProfile: {
@@ -95,23 +95,42 @@ new Vue(
                 return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
 
             },
-            newPost: function(){
-                this.myProfile.posts.push({
-                    date : this.getCurrentDateTime(),  
-                    text : this.postText,
-                   
-                });
-                this.postText = "";
+            found: function(id){
+                for (let i = 0; this.starred.length > i; i++){
+                    console.log("ELEMNT" + this.starred[i]);
+                    console.log("ID ESTERNO" + id);
+                  if(this.starred[i]==id){
+                      return "true";
+                    }  
+                };
+                console.log("FALSE")
+            },
 
+            remove: function(id){
+                for (let i = 0; this.starred.length > i; i++){
+                    if(this.starred[i]==id){
+                        this.starred.splice(i,1);
+                    }  
+                };
+            },
+            
+            starClick: function(id){
+                if(this.found(id)){
+                    this.remove(id);
+                } 
+                else{
+                    this.starred.push(id);
+                }
+                 
             },
 
      
 
-            removePost: function(index){
-                console.log(index);                
-                this.myProfile.posts.splice(index,1);
+            // removePost: function(index){
+            //     console.log(index);                
+            //     this.myProfile.posts.splice(index,1);
                  
-            },
+            // },
             
 
 
