@@ -30,7 +30,11 @@
                         <img :src="jobs.logo" alt="Company logo">
                     </div>
                     <div class="details">
-                        <div class="user-name"> <h5>Company:</h5>  {{jobs.company}} <h5>Position:</h5> {{jobs.position}}</div>
+                        <div class="user-name"> 
+                            <h5>Company:</h5> {{jobs.company}} 
+                            <h5>Position:</h5> {{jobs.position}}
+                            <h5>City:</h5> {{jobs.city}}
+                            <h5>Contract:</h5> {{jobs.contract}}</div>
                         
                     </div>
                 </div> 
@@ -40,10 +44,6 @@
                 </div>
                 <div class="post-date">{{jobs.created_at}}</div>
 
-                <!-- if? -->
-                <!-- <div v-if = "Object.keys(post).includes('mediaPath')" class="post-media">
-                    <img :src='post.mediaPath' alt="media" />
-                </div> -->
 
                 <div class="click">
                     <div v-if="found(jobs.id)">
@@ -71,5 +71,3 @@
     <script src="./js/script-vue.js"></script>
 </body>
 </html>
-<!-- 
-<i class="fas fa-times" @click="removePost(index)"></i> -->

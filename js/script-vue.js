@@ -63,13 +63,10 @@ new Vue(
         methods:{
             found: function(id){
                 for (let i = 0; this.starred.length > i; i++){
-                    console.log("ELEMNT" + this.starred[i]);
-                    console.log("ID ESTERNO" + id);
                   if(this.starred[i]==id){
                       return "true";
                     }  
                 };
-                console.log("FALSE")
             },
             remove: function(id){
                 for (let i = 0; this.starred.length > i; i++){
@@ -107,8 +104,36 @@ new Vue(
                 } 
                 else{
                     this.applied.push(id);
+                    this.openModal();
                 }
             },
+            openModal: function() {
+                console.log("open modal");
+                const modalTimeoutSeconds = 1;
+                const modalId = 'confirm-modal'
+                let modalSetTimeout = null;      
+          
+                this.$bvModal.msgBoxConfirm("Session expiration in ${modalTimeoutSeconds} seconds. Press OK to continue.", {
+                  id: modalId
+                })
+                .then(wasOkPressed => {
+                  if(wasOkPressed) {
+                    /* Do something */
+                  } else {
+                    /* Do something else */
+                  }
+                })
+                .catch(() => {
+                  console.log('The modal closed unexpectedly')
+                })
+                .finally(() => {
+                  clearTimeout(modalSetTimeout)
+                })
+                
+                modalSetTimeout = setTimeout(() => {
+                  this.$bvModal.hide(modalId)
+                }, modalTimeoutSeconds * 1000)
+              }
     }
     }
 );
