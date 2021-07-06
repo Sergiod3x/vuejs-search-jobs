@@ -101,3 +101,13 @@
 .post-text {
     margin: 15px 0;
 }
+
+.click{
+    display: flex;
+    color: rgb(116, 101, 20);
+    margin-top: 14px;
+}
+
+.send{
+    margin-left: 14px;
+}

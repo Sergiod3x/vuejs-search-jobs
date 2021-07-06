@@ -20,15 +20,7 @@
 
     <div id="main-container">
 
-        <!-- <div class="user-details">
-            <div class="user-pic"><img :src="myProfile.details.pic" alt="user pic"></div>
-            <div class="user-name">{{myProfile.details.name}} {{myProfile.details.surname}}</div>
-        </div> -->
 
-        <div class="new-post">
-            <textarea placeholder="A cosa stai pensando?" v-model="postText" @keyup.enter="newPost"></textarea>
-            <button class="send" @click="newPost">CREA</button>
-        </div>
 
         <div class="post-list">
 
@@ -53,6 +45,24 @@
                     <img :src='post.mediaPath' alt="media" />
                 </div> -->
 
+                <div class="click">
+                    <div v-if="found(jobs.id)">
+                        <i class="fas fa-star" @click="starClick(jobs.id)"></i>
+                    </div>
+                    <div v-else>
+                        <i class="far fa-star"  @click="starClick(jobs.id)"></i>
+                    </div>
+
+                    <div v-if="foundApply(jobs.id)">
+                        <button @click="applyClick(jobs.id)" class="send">Rimuovi candidatura</button>
+                    </div>
+                    <div v-else>
+                        <button @click="applyClick(jobs.id)" class="send">Candidati</button>
+                    </div>
+            </div>
+                  
+
+                
             </div>
 
         </div>

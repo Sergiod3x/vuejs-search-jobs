@@ -27,7 +27,7 @@ new Vue(
             },
             {
                 id: 3,
-                company: 'Perferendis',
+                company: 'Head',
                 position: 'Developer',
                 description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                 created_at: '4/22/2021',
@@ -37,7 +37,7 @@ new Vue(
             },
             {
                 id: 4,
-                company: 'Perferendis',
+                company: 'Enel',
                 position: 'Developer',
                 description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                 created_at: '3/22/2021',
@@ -47,7 +47,7 @@ new Vue(
             }, 
             {
                 id: 5,
-                company: 'Perferendis',
+                company: 'Bugati',
                 position: 'Developer',
                 description: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure veniam similique adipisci! Perferendis odio sapiente libero quam deleniti quidem consequuntur adipisci minima non iusto, sunt optio hic. Corporis, laboriosam perferendis?',
                 created_at: '2/28/2021',
@@ -59,34 +59,6 @@ new Vue(
         starred: [1, 2, 4],
         applied: [4, 5],
         
-            // myProfile: {
-            //     details: {
-            //         name: 'Pierfilippo',
-            //         surname: 'Baudo',
-            //         pic: 'https://www.focus.it/site_stored/imgs/0003/042/nerd2.1020x680.jpg',
-            //     },
-            //     posts: [
-            //         {
-            //             text: "C'è nessuno?",
-            //             mediaPath: 'https://acqualete.it/wp-content/uploads/2015/09/La-Particella-di-Sodio-1.jpg',
-            //             date: '26-05-2021'
-            //         }, {
-            //             text: "Vi ricordate di Windows XP? Che ricordi, non ce la faccio...",
-            //             mediaPath: 'https://upload.wikimedia.org/wikipedia/it/d/d3/Colline_%28immagine%29.jpg',
-            //             date: '01-06-2021'
-            //         }, {
-            //             text: "Mi sono iscritto in palestra!",
-            //             date: '16-06-2021'
-            //         },
-            //         {
-            //             text: 'Vi presento il mio amico Mimmo',
-            //             mediaPath: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Supernerd_%283262512306%29.jpg/1024px-Supernerd_%283262512306%29.jpg',
-            //             date: '17-06-2021'
-            //         }
-            //     ]
-            // },
-           postText : "",
-
         },
         methods:{
      
@@ -120,6 +92,35 @@ new Vue(
                 } 
                 else{
                     this.starred.push(id);
+                }
+                 
+            },
+            foundApply: function(id){
+                for (let i = 0; this.applied.length > i; i++){
+                    console.log("ELEMNT" + this.applied[i]);
+                    console.log("ID ESTERNO" + id);
+                  if(this.applied[i]==id){
+                      this.remove(id);
+                      return "true";
+                    }  
+                };
+                console.log("FALSE")
+            },
+
+            removeAply: function(id){
+                for (let i = 0; this.applied.length > i; i++){
+                    if(this.applied[i]==id){
+                        this.applied.splice(i,1);
+                    }  
+                };
+            },
+            
+            applyClick: function(id){
+                if(this.foundApply(id)){
+                    this.removeAply(id);
+                } 
+                else{
+                    this.applied.push(id);
                 }
                  
             },
