@@ -61,12 +61,6 @@ new Vue(
         
         },
         methods:{
-     
-            getCurrentDateTime: function() {
-                const dateTimeNow = dayjs();
-                return dateTimeNow.format("DD/MM/YYYY HH:mm:ss");
-
-            },
             found: function(id){
                 for (let i = 0; this.starred.length > i; i++){
                     console.log("ELEMNT" + this.starred[i]);
@@ -77,7 +71,6 @@ new Vue(
                 };
                 console.log("FALSE")
             },
-
             remove: function(id){
                 for (let i = 0; this.starred.length > i; i++){
                     if(this.starred[i]==id){
@@ -85,28 +78,22 @@ new Vue(
                     }  
                 };
             },
-            
             starClick: function(id){
                 if(this.found(id)){
                     this.remove(id);
                 } 
                 else{
                     this.starred.push(id);
-                }
-                 
+                } 
             },
             foundApply: function(id){
                 for (let i = 0; this.applied.length > i; i++){
-                    console.log("ELEMNT" + this.applied[i]);
-                    console.log("ID ESTERNO" + id);
                   if(this.applied[i]==id){
                       this.remove(id);
                       return "true";
                     }  
                 };
-                console.log("FALSE")
             },
-
             removeAply: function(id){
                 for (let i = 0; this.applied.length > i; i++){
                     if(this.applied[i]==id){
@@ -114,7 +101,6 @@ new Vue(
                     }  
                 };
             },
-            
             applyClick: function(id){
                 if(this.foundApply(id)){
                     this.removeAply(id);
@@ -122,20 +108,7 @@ new Vue(
                 else{
                     this.applied.push(id);
                 }
-                 
             },
-
-     
-
-            // removePost: function(index){
-            //     console.log(index);                
-            //     this.myProfile.posts.splice(index,1);
-                 
-            // },
-            
-
-
-
     }
     }
 );
