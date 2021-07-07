@@ -119,7 +119,8 @@ new Vue(
                         modal.style.display = 'block';
                 
                     }, 500);
-                    setTimeout(() => { //dopo 3s dalla candidatura la modale scompare
+                    //dopo 3s dalla candidatura la modale scompare
+                    setTimeout(() => { 
                         let modal = document.querySelector('.modal');
                         modal.style.display = 'none';
                 

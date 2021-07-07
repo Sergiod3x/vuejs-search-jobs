@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -18,7 +19,10 @@
 <body>
 
     <div id="main-container">
-
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    
         <div class="post-list">
             <!-- Tramite il ciclo scrivo tutti gli annunci dell'array -->
             <div v-for = '(jobs, index) in jobs' class="post">
@@ -64,10 +68,82 @@
                     </div>
                 </div> 
                 <div class="modal ">
-                    <h1>Candidatura Inviata</h1>
+                    <h3>Candidatura Inviata</h3>
                 </div> 
             </div>
         </div>
+                </div>
+                <div class="col-4">
+                    <div class="post-list">
+                        <h2>Preferiti</h2>
+                        <!-- Tramite il ciclo scrivo tutti gli annunci dell'array -->
+                        <div v-for = '(jobs, index) in jobs' >
+                            <div v-for = (starred)>
+                                <div v-if = found(jobs.id) class="post">
+                                    <div class="post-details">
+                                        <!-- Logo -->
+                                        <div class="logo">
+                                            <img :src="jobs.logo" alt="Company logo">
+                                        </div>
+                                        <!-- Dettagli posizione offerta -->
+                                        <div class="details">
+                                            <div class="details-company"> 
+                                                <h5>Company:</h5> {{jobs.company}} 
+                                                <h5>Position:</h5> {{jobs.position}}
+                                                <h5>City:</h5> {{jobs.city}}
+                                                <h5>Contract:</h5> {{jobs.contract}}</div>
+                                        </div>
+                                    </div> 
+                                    <!-- Il testo dell'annuncio -->
+                                    <div class="post-text">
+                                        {{jobs.description}}
+                                    </div>
+                                    <!-- Data dell'annuncio -->
+                                    <div class="post-date">{{jobs.created_at}}</div>
+
+                                </div>
+                            </div>
+
+                            </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="post-list">
+                        <h2>Candidature</h2>
+                        <!-- Tramite il ciclo scrivo tutti gli annunci dell'array -->
+                        <div v-for = '(jobs, index) in jobs' >
+                            <div v-for = (applied)>
+                                <div v-if = foundApply(jobs.id) class="post">
+                                    <div class="post-details">
+                                        <!-- Logo -->
+                                        <div class="logo">
+                                            <img :src="jobs.logo" alt="Company logo">
+                                        </div>
+                                        <!-- Dettagli posizione offerta -->
+                                        <div class="details">
+                                            <div class="details-company"> 
+                                                <h5>Company:</h5> {{jobs.company}} 
+                                                <h5>Position:</h5> {{jobs.position}}
+                                                <h5>City:</h5> {{jobs.city}}
+                                                <h5>Contract:</h5> {{jobs.contract}}</div>
+                                        </div>
+                                    </div> 
+                                    <!-- Il testo dell'annuncio -->
+                                    <div class="post-text">
+                                        {{jobs.description}}
+                                    </div>
+                                    <!-- Data dell'annuncio -->
+                                    <div class="post-date">{{jobs.created_at}}</div>
+
+                                </div>
+                            </div>
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 <script src="./js/script-vue.js"></script>
 </body>
