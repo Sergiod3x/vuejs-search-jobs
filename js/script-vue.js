@@ -115,15 +115,15 @@ new Vue(
                     this.applied.push(id);
                     setTimeout(() => { //dopo 0.5s dalla candidatura si esegue il setTimeout!
 
-                        let modal = document.querySelector('.newsletter-modal');
-                        let closeButton = document.querySelector('.newsletter-modal .close');
+                        let modal = document.querySelector('.modal');
+                        let closeButton = document.querySelector('.modal .close');
                         modal.style.display = 'block';
                 
                     }, 500);
                     setTimeout(() => { //dopo 3s dalla candidatura si esegue il setTimeout!
 
-                        let modal = document.querySelector('.newsletter-modal');
-                        let closeButton = document.querySelector('.newsletter-modal .close');
+                        let modal = document.querySelector('.modal');
+                        let closeButton = document.querySelector('.modal .close');
                         modal.style.display = 'none';
                 
                     }, 2000);

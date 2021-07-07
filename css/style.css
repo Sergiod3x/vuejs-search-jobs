@@ -59,7 +59,7 @@
 }
 
 /* modale */
-.newsletter-modal {
+.modal {
     display: none;
     position: fixed;
     top: 200px;
