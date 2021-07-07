@@ -57,3 +57,18 @@
 .send{
     margin-left: 14px;
 }
+
+/* modale */
+.newsletter-modal {
+    display: none;
+    position: fixed;
+    top: 200px;
+    border: 2px #333 solid;
+    border-radius: 15px;
+    padding: 32px;
+    background-color: wheat;
+    color: black;
+    z-index: 1001;
+    margin-left: 15px;
+}
+

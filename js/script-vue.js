@@ -113,36 +113,23 @@ new Vue(
                 } 
                 else{
                     this.applied.push(id);
-                    // this.openModal();
+                    setTimeout(() => { //dopo 0.5s dalla candidatura si esegue il setTimeout!
+
+                        let modal = document.querySelector('.newsletter-modal');
+                        let closeButton = document.querySelector('.newsletter-modal .close');
+                        modal.style.display = 'block';
+                
+                    }, 1000);
+                    setTimeout(() => { //dopo 3s dalla candidatura si esegue il setTimeout!
+
+                        let modal = document.querySelector('.newsletter-modal');
+                        let closeButton = document.querySelector('.newsletter-modal .close');
+                        modal.style.display = 'none';
+                
+                    }, 2000);
                 }
             },
-            // openModal: function() {
-            //     console.log("open modal");
-            //     const modalTimeoutSeconds = 1;
-            //     const modalId = 'confirm-modal'
-            //     let modalSetTimeout = null;      
-          
-            //     this.$bvModal.msgBoxConfirm("Session expiration in ${modalTimeoutSeconds} seconds. Press OK to continue.", {
-            //       id: modalId
-            //     })
-            //     .then(wasOkPressed => {
-            //       if(wasOkPressed) {
-            //         /* Do something */
-            //       } else {
-            //         /* Do something else */
-            //       }
-            //     })
-            //     .catch(() => {
-            //       console.log('The modal closed unexpectedly')
-            //     })
-            //     .finally(() => {
-            //       clearTimeout(modalSetTimeout)
-            //     })
-                
-            //     modalSetTimeout = setTimeout(() => {
-            //       this.$bvModal.hide(modalId)
-            //     }, modalTimeoutSeconds * 1000)
-            //   }
+            
     }
     }
 );
