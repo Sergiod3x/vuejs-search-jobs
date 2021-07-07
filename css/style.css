@@ -62,7 +62,7 @@
 .modal {
     display: none;
     position: fixed;
-    top: 200px;
+    top: 40vh;
     border: 2px rgb(51, 22, 22) solid;
     border-radius: 15px;
     padding: 32px;
