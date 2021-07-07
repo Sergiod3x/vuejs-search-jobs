@@ -119,7 +119,7 @@ new Vue(
                         let closeButton = document.querySelector('.newsletter-modal .close');
                         modal.style.display = 'block';
                 
-                    }, 1000);
+                    }, 500);
                     setTimeout(() => { //dopo 3s dalla candidatura si esegue il setTimeout!
 
                         let modal = document.querySelector('.newsletter-modal');
