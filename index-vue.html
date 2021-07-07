@@ -24,6 +24,7 @@
                 <div class="col-4">
                     
         <div class="post-list">
+            <h6>Posizioni lavorative </h6>
             <!-- Tramite il ciclo scrivo tutti gli annunci dell'array -->
             <div v-for = '(jobs, index) in jobs' class="post">
                 <div class="post-details">
@@ -75,7 +76,7 @@
                 </div>
                 <div class="col-4">
                     <div class="post-list">
-                        <h2>Preferiti</h2>
+                        <h6>Preferiti</h6>
                         <!-- Tramite il ciclo scrivo tutti gli annunci dell'array -->
                         <div v-for = '(jobs, index) in jobs' >
                             <div v-for = (starred)>
@@ -109,7 +110,7 @@
                 </div>
                 <div class="col-4">
                     <div class="post-list">
-                        <h2>Candidature</h2>
+                        <h6>Candidature</h6>
                         <!-- Tramite il ciclo scrivo tutti gli annunci dell'array -->
                         <div v-for = '(jobs, index) in jobs' >
                             <div v-for = (applied)>
