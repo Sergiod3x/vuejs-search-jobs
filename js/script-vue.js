@@ -4,6 +4,7 @@ new Vue(
     {
         el: '#main-container',
         data: {
+            // Array di proposte di lavoro
             jobs: [
             {
                 id: 1,
@@ -56,11 +57,14 @@ new Vue(
                 contract: 'Part-Time'
               }     
         ],
+        // Prefeririti
         starred: [1, 2, 4],
+        // Candidature effettuate
         applied: [4, 5],
         
         },
         methods:{
+            // Verifico se l'annuncio è già tra i preferiti, se no lo aggiungo e restituisco true
             found: function(id){
                 for (let i = 0; this.starred.length > i; i++){
                   if(this.starred[i]==id){
@@ -68,6 +72,7 @@ new Vue(
                     }  
                 };
             },
+            // Rimuovo l'annuncio dai preferiti
             remove: function(id){
                 for (let i = 0; this.starred.length > i; i++){
                     if(this.starred[i]==id){
@@ -75,6 +80,7 @@ new Vue(
                     }  
                 };
             },
+            // Se al click l'annuncio è presente nei preferiti lo rimuovo, altrimenti lo pusho
             starClick: function(id){
                 if(this.found(id)){
                     this.remove(id);
@@ -83,6 +89,7 @@ new Vue(
                     this.starred.push(id);
                 } 
             },
+            // Verifico se mi sono già candidato all'annuncio, se no lo aggiungo, lo rimuovo dai preferiti e restituisco true
             foundApply: function(id){
                 for (let i = 0; this.applied.length > i; i++){
                   if(this.applied[i]==id){
@@ -91,6 +98,7 @@ new Vue(
                     }  
                 };
             },
+            // Rimuovo la candidatura dall'annuncio
             removeAply: function(id){
                 for (let i = 0; this.applied.length > i; i++){
                     if(this.applied[i]==id){
@@ -98,6 +106,7 @@ new Vue(
                     }  
                 };
             },
+             // Se al click sono candidato per l'annuncio lo rimuovo, altrimenti lo pusho
             applyClick: function(id){
                 if(this.foundApply(id)){
                     this.removeAply(id);

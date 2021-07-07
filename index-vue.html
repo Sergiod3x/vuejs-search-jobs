@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Social Profile</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -20,53 +19,53 @@
 
     <div id="main-container">
 
-
-
         <div class="post-list">
-
+            <!-- Tramite il ciclo scrivo tutti gli annunci dell'array -->
             <div v-for = '(jobs, index) in jobs' class="post">
                 <div class="post-details">
-                    <div class="user-pic">
+                    <!-- Logo -->
+                    <div class="logo">
                         <img :src="jobs.logo" alt="Company logo">
                     </div>
+                    <!-- Dettagli posizione offerta -->
                     <div class="details">
-                        <div class="user-name"> 
+                        <div class="details-company"> 
                             <h5>Company:</h5> {{jobs.company}} 
                             <h5>Position:</h5> {{jobs.position}}
                             <h5>City:</h5> {{jobs.city}}
                             <h5>Contract:</h5> {{jobs.contract}}</div>
                     </div>
                 </div> 
-               
+                <!-- Il testo dell'annuncio -->
                 <div class="post-text">
                     {{jobs.description}}
                 </div>
+                <!-- Data dell'annuncio -->
                 <div class="post-date">{{jobs.created_at}}</div>
-
-
+                <!-- Classi per la candidatura alla posizione e per l'aggiunta ai preferiti -->
                 <div class="click">
+                    <!-- La funzione restituisce lo "stato" attuale di starred-->
                     <div v-if="found(jobs.id)">
+                        <!-- Al click richiamo la funzione per veirificare e cambiare lo "stato", stampo lo stato attuale nell'html -->
                         <i class="fas fa-star" @click="starClick(jobs.id)"></i>
                     </div>
                     <div v-else>
+                        <!-- Al click richiamo la funzione per veirificare e cambiare lo "stato", stampo lo stato attuale nell'html -->
                         <i class="far fa-star"  @click="starClick(jobs.id)"></i>
                     </div>
-
+                     <!-- La funzione restituisce lo "stato" attuale di applied-->
                     <div v-if="foundApply(jobs.id)">
+                        <!-- Al click richiamo la funzione per veirificare e cambiare lo "stato", stampo lo stato attuale nell'html -->
                         <button @click="applyClick(jobs.id)" class="send">Rimuovi candidatura</button>
                     </div>
                     <div v-else>
+                        <!-- Al click richiamo la funzione per veirificare e cambiare lo "stato", stampo lo stato attuale nell'html -->
                         <button @click="applyClick(jobs.id)" class="send">Candidati</button>
                     </div>
-                </div>
-                  
-
-                
+                </div> 
             </div>
-
         </div>
-
     </div>
-    <script src="./js/script-vue.js"></script>
+<script src="./js/script-vue.js"></script>
 </body>
 </html>
