@@ -113,14 +113,13 @@ new Vue(
                 } 
                 else{
                     this.applied.push(id);
-                    setTimeout(() => { //dopo 0.5s dalla candidatura si esegue il setTimeout!
-
+                    //dopo 0.5s dalla candidatura faccio comparire la modale
+                    setTimeout(() => { 
                         let modal = document.querySelector('.modal');
                         modal.style.display = 'block';
                 
                     }, 500);
-                    setTimeout(() => { //dopo 3s dalla candidatura si esegue il setTimeout!
-
+                    setTimeout(() => { //dopo 3s dalla candidatura la modale scompare
                         let modal = document.querySelector('.modal');
                         modal.style.display = 'none';
                 
